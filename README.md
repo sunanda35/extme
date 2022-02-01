@@ -1,1 +1,1 @@
-# fuck u
+# new application for fucking purpose
