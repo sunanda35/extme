@@ -4,10 +4,10 @@ WORKDIR /usr/src/extme-backend
 COPY package*.json ./
 
 RUN npm ci
+RUN npm run build
 COPY . .
-ARG PORT
-ENV PORT 4000 
 
-EXPOSE ${PORT}
+
+EXPOSE 4000
 
 CMD ["npm", "start"]
