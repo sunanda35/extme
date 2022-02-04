@@ -2,7 +2,7 @@ import express, { Express, Request, Response } from 'express';
 import { port } from './src/config/config';
 import { notFound, errorHandler } from './src/middleware/common';
 import routers from './src/routes/router';
-import mongoConnection from './src/config/db';
+import mongoConnection from './src/config/db.config';
 import helmet from 'helmet';
 import hpp from 'hpp';
 import cors from 'cors';
@@ -23,15 +23,15 @@ app.use(
   })
 );
 
-app.use(routers);
+app.use('/api', routers);
 
-const database = async () => {
-  const client = await mongoConnection();
-  app.locals.db = client.db();
-};
-database().then(() => {
-  console.log('Database Connected Successfully!');
-});
+// const database = async () => {
+//   const client = await mongoConnection();
+//   app.locals.db = client.db();
+// };
+// database().then(() => {
+//   console.log('Database Connected Successfully!');
+// });
 
 app.use((req, res, next) => {
   if (toobusy()) {
