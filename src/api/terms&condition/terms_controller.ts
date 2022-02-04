@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from 'express';
-import { STATUS_MSG } from '../constant/constant';
+import { STATUS_MSG } from '../../constant/constant';
 
 export const terms = async (req: Request, res: Response, next: NextFunction): Promise<any> => {
   //   const { db } = req.app.locals;
