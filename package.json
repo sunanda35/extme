@@ -1,6 +1,6 @@
 {
   "name": "my-app",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": true,
   "dependencies": {
     "@babel/core": "^7.16.0",
@@ -64,8 +64,16 @@
   },
   "scripts": {
     "start": "node scripts/start.js",
-    "build": "node scripts/build.js",
-    "test": "node scripts/test.js"
+    "dev": "yarn install && node scripts/start.js",
+    "dev-https": "set \"HTTPS=true\" && yarn install && node scripts/start.js",
+    "build": "node --max_old_space_size=4096 scripts/build.js",
+    "winBuild": "set \"GENERATE_SOURCEMAP=true\" && node --max_old_space_size=10240 scripts/build.js",
+    "sourceMapBuild": "node --max_old_space_size=4096 scripts/build.js",
+    "test": "node scripts/test.js",
+    "commit": "cz",
+    "release": "standard-version",
+    "prepare": "husky install",
+    "analyze": "yarn winBuild && source-map-explorer 'build/static/js/*.js'"
   },
   "eslintConfig": {
     "extends": [
@@ -84,6 +92,11 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   },
   "jest": {
     "roots": [
@@ -140,5 +153,11 @@
     "presets": [
       "react-app"
     ]
+  },
+  "devDependencies": {
+    "commitizen": "^4.2.4",
+    "cz-conventional-changelog": "^3.3.0",
+    "husky": "^7.0.4",
+    "standard-version": "^9.3.2"
   }
 }
