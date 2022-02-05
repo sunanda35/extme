@@ -54,8 +54,8 @@
     "@types/toobusy-js": "^0.5.2",
     "chai": "^4.3.6",
     "chai-http": "^4.3.0",
-    "commitizen": "^3.0.0",
-    "concurrently": "^7.0.0",
+    "commitizen": "^4.2.4",
+    "cz-conventional-changelog": "^3.3.0",
     "husky": "^7.0.4",
     "mocha": "^9.2.0",
     "nodemon": "^2.0.15",
@@ -85,14 +85,14 @@
     "vueIndentScriptAndStyle": false,
     "rangeStart": 0
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "prettier --write ."
-    }
-  },
   "config": {
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "prettier --write ."
     }
   }
 }
