@@ -47,4 +47,4 @@ app.get('/', (req: Request, res: Response) => {
 app.use(notFound);
 app.use(errorHandler);
 
-app.listen(port, () => console.log(`Running on http://localhost:${port} ⚡`));
+export default app.listen(port, () => console.log(`Running on http://localhost:${port} ⚡`));
