@@ -7,3 +7,8 @@ export const STATUS_MSG = {
   DELETE: 'Record deleted successfully.',
   NOT_FOUND: 'Not Found',
 };
+
+export const COL = {
+  USER: 'user',
+  FILE: 'files',
+};
